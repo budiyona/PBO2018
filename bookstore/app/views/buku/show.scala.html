@@ -1,0 +1,14 @@
+@* index Template File *@
+@(books: Book)
+
+
+@layout(books.title){
+	<h2>@books.title</h2>
+	<p>Price:@books.price</p>
+	<p>Author:@books.author</p>
+	
+	<a class="btn btn-primary" href="@routes.BooksController.edit(books.id)">Edit</a>
+	<a class="btn btn-danger" href="@routes.BooksController.destroy(books.id)">Delete</a>
+
+	
+}

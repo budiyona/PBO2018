@@ -1,0 +1,45 @@
+@* index Template File *@
+@(books: List[Book])
+@import java.math.BigInteger; var i=1
+
+@layout("All Books"){
+<div class="row-sm-6">
+	<div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">All Books</strong>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-striped">
+                              <thead class="thead-dark">
+                                <tr>
+                                  <th scope="col">No</th>
+                                  <th scope="col">Title</th>
+                                  <th scope="col">Price</th>
+                                  <th scope="col">Author</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+								
+								@for(Book <- books){
+                              	
+								<tr>
+								<th scope="row">@(i)</th>
+								<td> <a class="btn btn-link" href="@routes.BooksController.show(Book.id)">
+								@Book.title</a> </td>
+								<td>@Book.price</td>
+								<td>@Book.author</td>
+								</tr>
+								@(i+=1)
+								}
+			
+								
+							  </tbody>
+                          	</table>
+                        </div>
+                    </div>
+                </div>
+
+</div>
+	
+}

@@ -1,0 +1,14 @@
+@(bookForm: Form[Book])
+@import helper._
+@import views.html.buku._booksformfields
+@layout("Create Books"){
+	<h2>Add Book</h2>
+	@helper.form(action=routes.BooksController.save()){
+	
+	@_booksformfields(bookForm)
+	
+	<button class="btn btn-primary" type="submit">
+	<i class="glyphicon glyphicon-plus"></i> Create Book 
+	</button>
+	}
+}

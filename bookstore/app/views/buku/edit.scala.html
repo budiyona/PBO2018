@@ -1,0 +1,17 @@
+	
+@(bookForm: Form[Book])
+@import helper._
+@import views.html.buku._booksformfields
+@layout("Edit Books"){
+	<h2>Edit Book</h2>
+	@helper.form(action=routes.BooksController.update()){
+	
+	@_booksformfields(bookForm)
+	
+	<button class="btn btn-success" type="submit">
+	<i class="glyphicon glyphicon-check"></i> Save 
+	</button>
+	@helper.inputText(bookForm("id"),'_label->null,'hidden->"true",'hideIt->true)
+	
+	}
+}
